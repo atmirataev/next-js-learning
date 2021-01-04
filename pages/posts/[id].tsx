@@ -2,27 +2,20 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
-import Date from '../../components/date';
-import utilStyles from '../../styles/utils.module.css';
-import { PostData } from './types';
+import { IPost } from '../../components/Post/types';
+import Post from '../../components/Post/Post';
 
 type OwnProps = {
-  postData: PostData;
+  postData: IPost;
 };
 
-export default function Post({ postData }: OwnProps) {
+export default function PostData({ postData }: OwnProps) {
   return (
     <Layout>
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      <Post post={postData} />
     </Layout>
   );
 }

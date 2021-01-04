@@ -5,10 +5,10 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Date from '../components/date';
-import { AllPostsData } from './types';
+import { IAllPostsData } from '../components/types';
 
 type OwnProps = {
-  allPostsData: AllPostsData[];
+  allPostsData: IAllPostsData[];
 };
 
 export default function Home({ allPostsData }: OwnProps) {
